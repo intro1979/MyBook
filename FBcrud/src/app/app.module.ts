@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -24,7 +24,6 @@ import { EditbookComponent } from './components/editbook/editbook.component';
     BookComponent,
     BooksComponent,
     SearchComponent,
-    EditbookComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +39,7 @@ import { EditbookComponent } from './components/editbook/editbook.component';
     PWSMaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EditbookComponent]
 })
 export class AppModule { }

@@ -29,4 +29,19 @@ export class BookService {
     const bookDocRef = doc(this.afs, `books/${book.id}`);
     return deleteDoc(bookDocRef);
   }
+
+  getBookByID(id: string) {
+    const bookRef = doc(this.afs, `books/${id}`);
+    return docData(bookRef, { idField: 'id' }) as Observable<IBook>;
+  }
+  
+  updateBook(book: IBook) {
+    const bookDocRef = doc(this.afs, `books/${book.id}`);
+    return setDoc(bookDocRef, book);
+  }
+  
+  modifyBookPrice(book: IBook, amount: number) {
+    const bookDocRef = doc(this.afs, `books/${book.id}`);
+    return updateDoc(bookDocRef, { price: amount });
+  }
 }

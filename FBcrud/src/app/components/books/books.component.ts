@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EditbookComponent } from '../../../../../FBcrud/src/app/components/editbook/editbook.component';
 import { IBook } from '../../../../../FBcrud/src/app/services/book';
 import { BookService } from '../../../../../FBcrud/src/app/services/book.service';
