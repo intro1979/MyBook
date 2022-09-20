@@ -1,0 +1,42 @@
+<div class="flex-container">
+  <div class="mat-elevation-z3">
+    <h4 align="center">Add a new book</h4>  
+    <div fxLayout="row" fxLayout.md="column">
+    <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+    <mat-form-field appearance="outline">
+       <mat-label>Book Name</mat-label>
+       <input matInput name="name" #name="ngModel" [(ngModel)]="book.name" placeholder="Book Name" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+     <mat-label>Author</mat-label>
+      <input matInput name="author" #name="ngModel" 
+      [(ngModel)]="book.author" placeholder="Author" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Genre</mat-label>
+       <select matNativeControl name="genre" #name=ngModel 
+       [(ngModel)]="book.genre">
+         <option value="" selected></option>
+         <option value="Novel">Novel</option>
+         <option value="Non Fiction">Non Fiction</option>
+         <option value="Biography">Biography</option>
+         </select>
+        </mat-form-field>
+          <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <span matPrefix>R &nbsp;</span>
+           <input type="number" name="price" #name="ngModel" 
+            [(ngModel)]="book.price" placeholder="Price" required>
+            <mat-icon matSuffix>mode_edit</mat-icon>
+         </mat-form-field>
+         <button mat-stroked-button type="submit"
+          [disabled]="!bookForm.valid" [disabled]="bookForm.invalid"
+         >
+            <mat-icon>add</mat-icon>
+      Add Book</button>
+    </form>
+    </div>
+
+  </div>
+
+</div>
