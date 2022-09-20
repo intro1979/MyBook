@@ -1,1 +1,38 @@
-<p>editbook works!</p>
+<div *ngIf="book" class="container">
+  <h4>Edit Book Record</h4>
+  <form #bookForm="ngForm" (ngSubmit)="onUpdate()">
+  <mat-form-field appearance="outline">
+     <mat-label>Book Name</mat-label>
+     <input matInput name="name" #nameCtrl="ngModel" [(ngModel)]="book.name" placeholder="Book Name" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+   <mat-label>Author</mat-label>
+    <input matInput name="author" #authorCtrl="ngModel" 
+    [(ngModel)]="book.author" placeholder="Author" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+  <mat-label>Genre</mat-label>
+     <select matNativeControl name="genre" #genreCtrl=ngModel 
+     [(ngModel)]="book.genre">
+       <option value="" selected></option>
+       <option value="Novel">Novel</option>
+       <option value="Non Fiction">Non Fiction</option>
+       <option value="Biography">Biography</option>
+       </select>
+      </mat-form-field>
+        <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <span matPrefix>R &nbsp;</span>
+         <input type="number" name="price" #priceCtrl="ngModel" (blur)="setPrice(book, priceCtrl.value)"
+          ngModel="book.price" placeholder="Price" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+       </mat-form-field>
+       <button mat-stroked-button type="submit"
+        [disabled]="!bookForm.valid" [disabled]="bookForm.invalid"
+       >
+          <mat-icon>add</mat-icon>
+    Update Book</button>
+  </form>
+</div> 
+
+

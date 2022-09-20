@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./editbook.component.scss']
 })
 export class EditbookComponent implements OnInit {
-  @Input() id!: string;
+  @Input() id: string;
   book!: IBook;
 
   constructor(
